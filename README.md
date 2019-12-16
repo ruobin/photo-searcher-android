@@ -1,8 +1,6 @@
 # photo-searcher-android
 Code challenge Android
 
-Coding challenge - Ruobin Wang
-
 Create a simple photo library that downloads images from [flickr] (https://www.flickr.com/services/api/)
 and that uses most if not all of the below:
 
