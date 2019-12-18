@@ -21,13 +21,13 @@ and that uses most if not all of the below:
 
 ### TODO
 1. Search for images by keyword
-2. Download pictures from the flickr api and display them (Grid or Constaint Layout)
+2. Download pictures from the flickr api and display them (Grid or Constraint Layout)
 3. Implement a `Detail` screen which should show the picture in bigger resolution/ full screen
 4. Add save to device function
 5. Add unit tests
 
 ### Nice to have
-1. download images withouht using external library (i.e. use native)
+1. Download images without using any external libraries (i.e. use native)
 2. Share the pictures, use swipe gestures, custom animations
 
 Please follow clean code principles!
