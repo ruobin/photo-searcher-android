@@ -1,28 +1,75 @@
 package com.ruobin.demo.photosearcher.data;
 
+import java.util.List;
 
-//{ "photos":{"page":1,"pages":"3934","perpage":100,"total":"393394",
-//        "photo":[
-//        {"id":"49262093617","owner":"186116107@N07","secret":"0584567f63","server":"65535","farm":66,"title":"Old building","ispublic":1,"isfriend":0,"isfamily":0},
-//        {"id":"49261418598","owner":"11168644@N07","secret":"588f5d93f3","server":"65535","farm":66,"title":"","ispublic":1,"isfriend":0,"isfamily":0},
-//        {"id":"49262083432","owner":"185945797@N04","secret":"04846a3a8d","server":"65535","farm":66,"title":"No escape","ispublic":1,"isfriend":0,"isfamily":0},
-//        {"id":"49261875171","owner":"125532120@N06","secret":"7022d3b734","server":"65535","farm":66,"title":"EI-DBK, Boeing 777-200ER, Alitalia, Los Angeles","ispublic":1,"isfriend":0,"isfamily":0},
-//        {"id":"49262038152","owner":"26982917@N02","secret":"3d9d0b0b9e","server":"65535","farm":66,"title":"Mazda, MX-5, Shek O, Hong Kong","ispublic":1,"isfriend":0,"isfamily":0}
-//        ]
-//        }
-
-
+/**
+ * Immutable model class for response of flickr.photos.search API
+ *
+ * API url example, https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=3815c92a84e3f87a0ef5d5009086f8ab&text=cars&format=json&nojsoncallback=1
+ *
+ */
 public class PhotoSearchResult {
 
     public PhotoResponse getPhotos() {
         return photos;
     }
 
+    private PhotoResponse photos;
+
+    public class PhotoResponse {
+
+        public List<PhotoBasicInfo> getPhotoList() {
+            return photo;
+        }
+
+        private String page;
+
+        private List<PhotoBasicInfo> photo;
+
+        public class PhotoBasicInfo {
+
+            private String id;
+            private String owner;
+            private String title;
+            private String inpublic;
+
+            public String getId() {
+                return id;
+            }
+
+            public void setId(String id) {
+                this.id = id;
+            }
+
+            public String getOwner() {
+                return owner;
+            }
+
+            public void setOwner(String owner) {
+                this.owner = owner;
+            }
+
+            public String getTitle() {
+                return title;
+            }
+
+            public void setTitle(String title) {
+                this.title = title;
+            }
+
+            public String getInpublic() {
+                return inpublic;
+            }
+
+            public void setInpublic(String inpublic) {
+                this.inpublic = inpublic;
+            }
+        }
+    }
+
     public String getStat() {
         return stat;
     }
-
-    private PhotoResponse photos;
 
     private String stat;
 

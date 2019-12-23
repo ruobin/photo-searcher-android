@@ -9,10 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ruobin.demo.photosearcher.R;
-import com.ruobin.demo.photosearcher.data.PhotoBasicInfo;
+import com.ruobin.demo.photosearcher.data.PhotoSearchResult;
 import com.ruobin.demo.photosearcher.data.source.PhotoDataSource;
 
 import java.util.List;
+
 
 public class PhotoListAdapter extends RecyclerView.Adapter {
 
@@ -20,9 +21,9 @@ public class PhotoListAdapter extends RecyclerView.Adapter {
 
     private PhotoDataSource dataSource;
 
-    private List<PhotoBasicInfo> items;
+    private List<PhotoSearchResult.PhotoResponse.PhotoBasicInfo> items;
 
-    public PhotoListAdapter(Context context, List<PhotoBasicInfo> items, PhotoDataSource dataSource) {
+    public PhotoListAdapter(Context context, List<PhotoSearchResult.PhotoResponse.PhotoBasicInfo> items, PhotoDataSource dataSource) {
         this.context = context;
         this.items = items;
         this.dataSource = dataSource;
