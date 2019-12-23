@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ruobin.demo.photosearcher.PhotoSearcherApplication;
@@ -63,5 +64,7 @@ public class PhotoSearchActivity extends Activity {
     private void updateRecylerView(PhotoSearchResult searchResult) {
         adapter = new PhotoListAdapter(this, searchResult.getPhotos().getPhotoList(), photoDataSource);
         photoListView.setAdapter(adapter);
+        photoListView.setLayoutManager(new GridLayoutManager(this, 3));
+        photoListView.getAdapter().notifyDataSetChanged();
     }
 }

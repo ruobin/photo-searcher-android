@@ -1,11 +1,13 @@
 package com.ruobin.demo.photosearcher.data.source.remote;
 
 import com.google.gson.Gson;
+import com.google.gson.internal.LinkedTreeMap;
 import com.ruobin.demo.photosearcher.data.PhotoDetailedInfo;
 import com.ruobin.demo.photosearcher.data.PhotoResponse;
 import com.ruobin.demo.photosearcher.data.PhotoSearchResult;
 import com.ruobin.demo.photosearcher.data.source.PhotoDataSource;
 
+import java.util.Map;
 import java.util.concurrent.Callable;
 
 import io.reactivex.Flowable;
@@ -86,7 +88,8 @@ public class PhotoRemoteDataSource implements PhotoDataSource {
             @Override
             public PhotoDetailedInfo call() throws Exception {
                 Response response = okHttpClient.newCall(request).execute();
-                return gson.fromJson(response.toString(), PhotoDetailedInfo.class);
+                PhotoDetailedInfo info = gson.fromJson(response.body().string(), PhotoDetailedInfo.class);
+                return info;
             }
         })
                 .subscribeOn(Schedulers.io())

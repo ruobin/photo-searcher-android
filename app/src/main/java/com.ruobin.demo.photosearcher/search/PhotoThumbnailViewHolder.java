@@ -13,6 +13,7 @@ import com.ruobin.demo.photosearcher.data.PhotoBasicInfo;
 import com.ruobin.demo.photosearcher.data.source.PhotoDataSource;
 
 import java.util.List;
+import java.util.Map;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 
@@ -34,7 +35,7 @@ public class PhotoThumbnailViewHolder extends RecyclerView.ViewHolder {
     public void bindView(List<PhotoBasicInfo> items, int position) {
 
         photoDataSource.getPhotoDetailedInfo(items.get(position).getId())
-                .doOnNext(info -> Glide.with(context).load(info.getUrl()).into(thumbnailImageView))
-                .subscribeOn(AndroidSchedulers.mainThread());
+                .subscribe(info ->
+                        Glide.with(context).load(info.getPhoto().getUrls().getUrl().get(0).get_content()).into(thumbnailImageView));
     }
 }

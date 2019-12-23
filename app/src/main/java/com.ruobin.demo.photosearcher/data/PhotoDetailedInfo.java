@@ -37,17 +37,49 @@ package com.ruobin.demo.photosearcher.data;
 //        { "type": "photopage", "_content": "https:\/\/www.flickr.com\/photos\/186116107@N07\/49262093617\/" }
 //        ] }, "media": "photo" }, "stat": "ok" }
 
+import java.util.List;
+
 /**
  * Immutable model class for a PhotoDetailedInfo
  */
 public final class PhotoDetailedInfo {
 
-    private String id;
+    public class Photo {
 
-    private String url;
+        public Urls getUrls() {
+            return urls;
+        }
 
-    public String getUrl() {
-        return url;
+        private Urls urls;
+
+        public class Urls {
+            public List<Url> getUrl() {
+                return url;
+            }
+
+            private List<Url> url;
+
+            public class Url {
+                private String type;
+
+                public String get_content() {
+                    return _content;
+                }
+
+                private String _content;
+            }
+        }
     }
 
+    public Photo getPhoto() {
+        return photo;
+    }
+
+    private Photo photo;
+
+    public String getStat() {
+        return stat;
+    }
+
+    private String stat;
 }

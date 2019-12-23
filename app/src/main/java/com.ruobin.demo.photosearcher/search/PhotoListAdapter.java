@@ -44,7 +44,7 @@ public class PhotoListAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return 9;
+        return items.size();
     }
 
 
